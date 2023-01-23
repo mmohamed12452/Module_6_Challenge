@@ -78,3 +78,9 @@ $("#searchCityButton").on("click", function(event){
     displayFiveDayForecast();
 })
 
+//event handler when you press enter inplace of the search button after keying in city to search
+$("#cityInput").keypress(function(e){
+    if(e,which == 13){
+        $("#searchCityButton").click();
+    }
+})
