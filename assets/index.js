@@ -1,20 +1,19 @@
 // Variable declaration for our project
 var cityListArray = [];
-var cityName;
+var cityname;
 
 getCityList();
 initializeWeather();
 
 //function to pick up and display the city being searched.
 function displaySearchedCity(){
-    $("#cityInput").val("");
     $("#cityList").empty();
+    $("#cityInput").val("");
 
-
-    for(i=0; i<cityList.length; i++)
+    for(i=0; i<cityListArray.length; i++)
     {
        var cityLink = $("<a>");
-       cityLink.addClass("list-group-item list-group-item-action list-group-item-primary city");
+       cityLink.addClass("list-group-item list-group-item-action list-group-item-primary city my-2 bg-light text-info");
        cityLink.attr("data-name", cityListArray[i]);
        cityLink.text(cityListArray[i]);
        $("#cityList").prepend(cityLink);
@@ -39,7 +38,7 @@ function initializeWeather(){
     var storedWeather = JSON.parse(localStorage.getItem("currentCity"));
 
     if(storedWeather !== null){
-        cityName = storedWeather;
+        cityname = storedWeather;
 
         displayWeather();
         displayFiveDayForecast();
@@ -57,24 +56,24 @@ function storeCityArray(){
 
 //function to save the currently displayed city on our local storage
 function storeCurrentCity(){
-    localStorage.setItem("currentCity", JSON.stringify(cityName));
+    localStorage.setItem("currentCity", JSON.stringify(cityname));
 }
 
 //event handler for when we click the search city button
 $("#searchCityButton").on("click", function(event){
     event.preventDefault();
 
-    cityName = $("#cityInput").val().trim();
-    if(cityName === ""){
+    cityname = $("#cityInput").val().trim();
+    if(cityname === ""){
         alert("Please enter a city to Forecast")
     } else if(cityListArray.length >= 5){
         //removes a city from the array
         cityListArray.shift();
 
         //add a new city at the top of the array
-        cityListArray.push(cityName);
+        cityListArray.push(cityname);
     } else{
-        cityList.push(cityName);
+        cityListArray.push(cityname);
     }
 
     storeCurrentCity();
@@ -86,7 +85,7 @@ $("#searchCityButton").on("click", function(event){
 
 //event handler when you press enter inplace of the search button after keying in city to search
 $("#cityInput").keypress(function(e){
-    if(e,which == 13){
+    if(e.which == 13){
         $("#searchCityButton").click();
     }
 })
@@ -193,11 +192,14 @@ async function displayFiveDayForecast() {
 
     //function to pass thecity in the history to our display weather function
     function historyDisplayWeather(){
-        cityName = $(this).attr("data-name");
+        cityname = $(this).attr("data-name");
 
         displayWeather();
         displayFiveDayForecast();
+        console.log(cityname);
 
     }
 
-    
+
+    $(document).on("click", ".city", historyDisplayWeather);
+
