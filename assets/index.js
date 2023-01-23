@@ -189,3 +189,15 @@ async function displayFiveDayForecast() {
       }
       $("#forecastContainer").html(forecastDiv);
     }
+
+
+    //function to pass thecity in the history to our display weather function
+    function historyDisplayWeather(){
+        cityName = $(this).attr("data-name");
+
+        displayWeather();
+        displayFiveDayForecast();
+
+    }
+
+    
