@@ -21,7 +21,7 @@ function displaySearchedCity(){
 
 //function to get the array of cities from the local storage
 function getCityList(){
-    var storedCities = JSON.parse(localStorage.getItem("city"));
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
 
     if(storedCities !== null){
         cityListArray = storedCities;
@@ -37,7 +37,20 @@ function initializeWeather(){
 
     if(storedWeather !== null){
         cityName = storedWeather;
-        
+
     }
   
 }
+
+//function to save the array of cities on the local storage
+function storeCityArray(){
+    localStorage.setItem("cities", JSON.stringify(cityListArray));
+
+
+}
+
+//function to save the currently displayed city on our local storage
+function storeCurrentCity(){
+    localStorage.setItem("currentCity", JSON.stringify(cityName));
+}
+
