@@ -54,3 +54,27 @@ function storeCurrentCity(){
     localStorage.setItem("currentCity", JSON.stringify(cityName));
 }
 
+//event handler for when we click the search city button
+$("#searchCityButton").on("click", function(event){
+    event.preventDefault();
+
+    cityName = $("#cityInput").val().trim();
+    if(cityName === ""){
+        alert("Please enter a city to Forecast")
+    } else if(cityListArray.length >= 5){
+        //removes a city from the array
+        cityListArray.shift();
+
+        //add a new city at the top of the array
+        cityListArray.push(cityName);
+    } else{
+        cityList.push(cityName);
+    }
+
+    storeCurrentCity();
+    storeCityArray();
+    displaySearchedCity();
+    displayWeather();
+    displayFiveDayForecast();
+})
+
