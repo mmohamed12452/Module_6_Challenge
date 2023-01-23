@@ -18,3 +18,17 @@ function displaySearchedCity(){
     }
 
 }
+
+//function to get the array of cities from the local storage
+function getCityList(){
+    var storedCities = JSON.parse(localStorage.getItem("currentItem"));
+
+    if(storedCities !== null){
+        cityListArray = storedCities;
+    
+    }
+
+    displaySearchedCity();
+}
+
+
