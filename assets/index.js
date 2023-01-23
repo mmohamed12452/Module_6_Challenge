@@ -66,7 +66,7 @@ $("#searchCityButton").on("click", function(event){
     cityname = $("#cityInput").val().trim();
     if(cityname === ""){
         alert("Please enter a city to Forecast")
-    } else if(cityListArray.length >= 5){
+    } else if(cityListArray.length >= 7){
         //removes a city from the array
         cityListArray.shift();
 
