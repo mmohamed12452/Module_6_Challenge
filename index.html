@@ -5,28 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <!-- css file -->
     <link rel="stylesheet" href="./assets/index.css">
+
+    <!-- bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
     <header>
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-5 text-center">
+                MOHAMMED'S WEATHER DASHBOARD
+            </h1>
+            <h5 class="display-5 text-center">
+                Worry No more! We got you...
+            </h5>
+
+        </div>
 
     </header>
 
     <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 searchColumn">
+                    <h4>
+                        Search for a City:
+                    </h4>
+                    
+                    <div class="mb-3 input-group">
+                        <input type="text" name="" id="">
+                        <div class="input-group-append">
+                           <button class="btn btn-outline-primary">
+                               <img src="./assets/Images/search.png" width="20px">
+                           </button>
+                        </div>
+   
+                        <div class="list-group" id="cityList">
+                            
+                       </div>                
+                    </div>
+                </div>
 
+                <div class="col-9">
+                    <div class="card" id="weatherContainer">
+
+                    </div>
+
+                    <div id="weatherForecastContainer">
+                        
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </main>
 
 
     <footer class="footer py-2 text-center ">
         <div class="container">
             <em>Weather App Created by Mohammed</em>
-
         </div>
     </footer>
 
+    <!-- jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+   
+   <!-- javascript file -->
     <script src="./assets/index.js"></script>
 </body>
 </html>
